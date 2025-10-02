@@ -14,7 +14,7 @@ export default function DashboardPage() {
             <div>
               <p className="text-sm font-medium text-slate-600">Total Revenue</p>
               <p className="text-3xl font-bold text-emerald-600">$45,678</p>
-              <p className="text-sm text-emerald-600 font-medium">+12.5% from last month</p>
+              <p className="text-sm text-emerald-600 font-medium">+12.9% from last month</p>
             </div>
             <div className="w-14 h-14 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-2xl flex items-center justify-center">
               <svg className="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
