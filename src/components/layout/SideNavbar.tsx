@@ -10,7 +10,11 @@ interface NavItem {
   children?: NavItem[];
 }
 
-export const SideNavbar = () => {
+interface SideNavbarProps {
+  onClose?: () => void;
+}
+
+export const SideNavbar = ({ onClose }: SideNavbarProps) => {
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const pathname = usePathname();
 
@@ -132,6 +136,7 @@ export const SideNavbar = () => {
       <Link
         key={item.name}
         href={item.path!}
+        onClick={() => onClose && onClose()}
         className={`px-4 py-3 transition-all duration-200 block group relative rounded-xl ${
           isActive 
             ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg' 
@@ -157,16 +162,29 @@ export const SideNavbar = () => {
     <aside className="w-72 h-screen bg-gradient-to-b from-slate-800 to-slate-900 text-white flex flex-col shadow-2xl border-r border-slate-700">
       {/* Header */}
       <div className="p-6 border-b border-slate-700">
-        <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-            </svg>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+              <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-xl font-semibold text-white tracking-tight">ERP System</h1>
+              <p className="text-xs text-slate-400 font-medium">Business Management</p>
+            </div>
           </div>
-          <div>
-            <h1 className="text-xl font-semibold text-white tracking-tight">ERP System</h1>
-            <p className="text-xs text-slate-400 font-medium">Business Management</p>
-          </div>
+          {/* Close button for mobile */}
+          {onClose && (
+            <button
+              onClick={onClose}
+              className="lg:hidden p-2 rounded-lg hover:bg-slate-700/50 transition-colors"
+            >
+              <svg className="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          )}
         </div>
       </div>
       

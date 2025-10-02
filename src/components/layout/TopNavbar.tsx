@@ -5,9 +5,10 @@ import { useState } from 'react';
 
 interface TopNavbarProps {
   title?: string;
+  onMenuClick?: () => void;
 }
 
-export const TopNavbar = ({ title }: TopNavbarProps) => {
+export const TopNavbar = ({ title, onMenuClick }: TopNavbarProps) => {
   const pathname = usePathname();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
@@ -23,23 +24,34 @@ export const TopNavbar = ({ title }: TopNavbarProps) => {
   };
 
   return (
-    <header className="h-16 w-full bg-white/80 backdrop-blur-sm border-b border-slate-200 flex justify-between items-center px-8 shadow-sm sticky top-0 z-50">
+    <header className="h-16 w-full bg-white/80 backdrop-blur-sm border-b border-slate-200 flex justify-between items-center px-4 sm:px-6 lg:px-8 shadow-sm sticky top-0 z-50">
       <div className="flex items-center space-x-4">
-        <h1 className="text-xl font-semibold text-slate-900 tracking-tight">{getPageTitle()}</h1>
+        {/* Mobile menu button */}
+        {onMenuClick && (
+          <button
+            onClick={onMenuClick}
+            className="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
+          >
+            <svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        )}
+        <h1 className="text-lg sm:text-xl font-semibold text-slate-900 tracking-tight">{getPageTitle()}</h1>
         <div className="hidden md:flex items-center space-x-2 text-sm text-slate-500">
           <span>/</span>
           <span>ERP System</span>
         </div>
       </div>
       
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 sm:gap-4">
         {/* Search */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <div className="relative">
             <input
               type="text"
               placeholder="Search..."
-              className="w-64 px-4 py-2 pl-10 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm"
+              className="w-48 xl:w-64 px-4 py-2 pl-10 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm"
             />
             <svg
               className="absolute left-3 top-2.5 h-4 w-4 text-slate-400"
@@ -51,6 +63,13 @@ export const TopNavbar = ({ title }: TopNavbarProps) => {
             </svg>
           </div>
         </div>
+
+        {/* Mobile search button */}
+        <button className="lg:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-colors">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
 
         {/* Notifications */}
         <button className="relative p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-colors">
@@ -64,14 +83,14 @@ export const TopNavbar = ({ title }: TopNavbarProps) => {
         <div className="relative">
           <button
             onClick={() => setIsProfileOpen(!isProfileOpen)}
-            className="flex items-center space-x-3 p-2 rounded-xl hover:bg-slate-100 transition-colors"
+            className="flex items-center space-x-2 sm:space-x-3 p-2 rounded-xl hover:bg-slate-100 transition-colors"
           >
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
               <span className="text-white text-sm font-medium">A</span>
             </div>
-            <div className="hidden md:block text-left">
+            <div className="hidden sm:block text-left">
               <p className="text-sm font-medium text-slate-900">Admin User</p>
-              <p className="text-xs text-slate-500">admin@company.com</p>
+              <p className="text-xs text-slate-500 hidden md:block">admin@company.com</p>
             </div>
             <svg
               className={`w-4 h-4 text-slate-400 transition-transform ${isProfileOpen ? 'rotate-180' : ''}`}
