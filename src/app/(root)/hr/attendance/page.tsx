@@ -14,7 +14,7 @@ export default function AttendancePage() {
       </div>
       
       <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-semibold text-slate-900 mb-6 tracking-tight">Today's Attendance</h3>
+        <h3 className="text-xl font-semibold text-slate-900 mb-6 tracking-tight">Today&apos;s Attendance</h3>
         <div className="space-y-4">
           <div className="flex items-center justify-between p-5 rounded-2xl hover:bg-white/50 transition-colors border border-slate-200/50">
             <div>

@@ -81,7 +81,7 @@ export default function StockLevelsPage() {
             <div className="flex items-center space-x-4">
               <div className="w-3 h-3 bg-amber-500 rounded-full"></div>
               <div>
-                <p className="font-semibold text-slate-900">Laptop Pro 15"</p>
+                <p className="font-semibold text-slate-900">Laptop Pro 15&quot;</p>
                 <p className="text-sm text-slate-600">Current stock: 5 | Reorder point: 10</p>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function StockLevelsPage() {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Laptop Pro 15"</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Laptop Pro 15&quot;</td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">Out</span>
                 </td>

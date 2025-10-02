@@ -43,7 +43,7 @@ export default function SalesAnalyticsPage() {
           <h3 className="text-xl font-semibold text-slate-900 mb-6 tracking-tight">Top Products</h3>
           <div className="space-y-3">
             <div className="flex justify-between items-center p-3 rounded-xl hover:bg-white/50 transition-colors">
-              <span className="text-slate-600 font-medium">Laptop Pro 15"</span>
+              <span className="text-slate-600 font-medium">Laptop Pro 15&quot;</span>
               <span className="font-bold text-slate-900">$12,990</span>
             </div>
             <div className="flex justify-between items-center p-3 rounded-xl hover:bg-white/50 transition-colors">

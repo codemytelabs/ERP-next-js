@@ -4,7 +4,7 @@ export default function DashboardPage() {
       {/* Header */}
       <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg p-8">
         <h1 className="text-3xl font-bold text-slate-900 mb-3 tracking-tight">Dashboard</h1>
-        <p className="text-slate-600 text-lg">Welcome to your ERP system. Here's an overview of your business performance.</p>
+        <p className="text-slate-600 text-lg">Welcome to your ERP system. Here&apos;s an overview of your business performance.</p>
       </div>
 
       {/* KPI Cards */}

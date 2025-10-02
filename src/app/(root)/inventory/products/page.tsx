@@ -67,7 +67,7 @@ export default function ProductsPage() {
                       </svg>
                     </div>
                     <div className="ml-4">
-                      <div className="text-sm font-medium text-gray-900">Laptop Pro 15"</div>
+                      <div className="text-sm font-medium text-gray-900">Laptop Pro 15&quot;</div>
                       <div className="text-sm text-gray-500">High-performance laptop</div>
                     </div>
                   </div>
