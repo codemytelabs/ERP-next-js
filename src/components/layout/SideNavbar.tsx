@@ -202,7 +202,7 @@ export const SideNavbar = ({ onClose }: SideNavbarProps) => {
       <div className="p-4 border-t border-slate-700">
         <div className="text-xs text-slate-400 text-center font-medium">
           <p>© 2025 CodeMyte Labs</p>
-          <p className="mt-1">Version 1.0.0</p>
+          <p className="mt-1">Version 1.1.0</p>
         </div>
       </div>
     </aside>
